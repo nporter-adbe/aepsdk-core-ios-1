@@ -11,29 +11,20 @@ let package = Package(
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
-        name: "AEPServices",
-        targets: ["AEPServices"]),
-        
-        .library(
-        name: "AEPCore",
-        targets: [ "AEPCore"]),
+        name: "AEPCore-Bundle",
+        targets: ["AEPCore-Bundle"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
+        .package(path: "./Packages/AEPCore/"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
-            name: "AEPServices",
-            dependencies: [],
-            path: "./Packages/AEPServices/Sources"
-        ),
-        .target(
-            name: "AEPCore",
-            dependencies: ["AEPServices"],
-            path: "./Packages/AEPCore/Sources"
+            name: "AEPCore-Bundle",
+            dependencies: ["AEPCore"]
         ),
 //        .testTarget(
 //            name: "AEPConfigurationTests",

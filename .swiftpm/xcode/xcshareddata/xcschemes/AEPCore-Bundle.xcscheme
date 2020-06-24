@@ -14,34 +14,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AEPServices"
-               BuildableName = "AEPServices"
-               BlueprintName = "AEPServices"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AEPCore"
-               BuildableName = "AEPCore"
-               BlueprintName = "AEPCore"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "AEPCore-Bundle"
                BuildableName = "AEPCore-Bundle"
                BlueprintName = "AEPCore-Bundle"
@@ -78,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AEPServices"
-            BuildableName = "AEPServices"
-            BlueprintName = "AEPServices"
+            BlueprintIdentifier = "AEPCore-Bundle"
+            BuildableName = "AEPCore-Bundle"
+            BlueprintName = "AEPCore-Bundle"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
