@@ -89,7 +89,7 @@ class IdentityMapTests: XCTestCase {
 
         let encodedIdentityMap = try! JSONEncoder().encode(identityMap)
         let decodedIdentityMap = try! JSONDecoder().decode(IdentityMap.self, from: encodedIdentityMap)
-        
+
         // verify
         XCTAssertEqual(identityMap, decodedIdentityMap)
     }
@@ -101,7 +101,7 @@ class IdentityMapTests: XCTestCase {
 
         let encodedIdentityMap = try! JSONEncoder().encode(identityMap)
         let decodedIdentityMap = try! JSONDecoder().decode(IdentityMap.self, from: encodedIdentityMap)
-        
+
         // verify
         XCTAssertEqual(identityMap, decodedIdentityMap)
     }
@@ -113,7 +113,7 @@ class IdentityMapTests: XCTestCase {
 
         let encodedIdentityMap = try! JSONEncoder().encode(identityMap)
         let decodedIdentityMap = try! JSONDecoder().decode(IdentityMap.self, from: encodedIdentityMap)
-        
+
         // verify
         XCTAssertEqual(identityMap, decodedIdentityMap)
     }
@@ -152,21 +152,21 @@ class IdentityMapTests: XCTestCase {
 
     func testDecode_twoItems() {
         guard let data = """
-             {
-               "A" : [
-                 {
-                   "id" : "123"
-                 }
-               ],
-               "space" : [
-                 {
-                   "authenticationState" : "ambiguous",
-                   "id" : "id",
-                   "primary" : false
-                 }
-               ]
-             }
-         """.data(using: .utf8) else {
+            {
+              "A" : [
+                {
+                  "id" : "123"
+                }
+              ],
+              "space" : [
+                {
+                  "authenticationState" : "ambiguous",
+                  "id" : "id",
+                  "primary" : false
+                }
+              ]
+            }
+        """.data(using: .utf8) else {
             XCTFail("Failed to convert json string to data")
             return
         }
@@ -196,19 +196,19 @@ class IdentityMapTests: XCTestCase {
 
     func testDecode_twoItemsSameNamespace() {
         guard let data = """
-             {
-               "space" : [
-                 {
-                   "authenticationState" : "ambiguous",
-                   "id" : "id",
-                   "primary" : false
-                 },
-                 {
-                   "id" : "123"
-                 }
-               ]
-             }
-         """.data(using: .utf8) else {
+            {
+              "space" : [
+                {
+                  "authenticationState" : "ambiguous",
+                  "id" : "id",
+                  "primary" : false
+                },
+                {
+                  "id" : "123"
+                }
+              ]
+            }
+        """.data(using: .utf8) else {
             XCTFail("Failed to convert json to data")
             return
         }
@@ -234,17 +234,17 @@ class IdentityMapTests: XCTestCase {
 
     func testDecode_unknownParamsInIdentityItem() {
         guard let data = """
-              {
-                "space" : [
-                  {
-                    "authenticationState" : "ambiguous",
-                    "id" : "id",
-                    "unknown" : true,
-                    "primary" : false
-                  }
-                ]
-              }
-          """.data(using: .utf8) else {
+            {
+              "space" : [
+                {
+                  "authenticationState" : "ambiguous",
+                  "id" : "id",
+                  "unknown" : true,
+                  "primary" : false
+                }
+              ]
+            }
+        """.data(using: .utf8) else {
             XCTFail("Failed to convert json to data")
             return
         }
@@ -274,5 +274,5 @@ class IdentityMapTests: XCTestCase {
         let identityMap = try? decoder.decode(IdentityMap.self, from: data)
         XCTAssertNotNil(identityMap)
     }
-    
+
 }

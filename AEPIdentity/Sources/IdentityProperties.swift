@@ -62,7 +62,7 @@ struct IdentityProperties: Codable {
 
         return eventData
     }
-    
+
     /// Converts `IdentityProperties` into an XDM data representation
     /// - Returns: A dictionary representing this `IdentityProperties` in XDM data format
     func toXDMData() -> [String: Any] {

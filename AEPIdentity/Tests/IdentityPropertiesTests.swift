@@ -50,7 +50,7 @@ class IdentityPropertiesTests: XCTestCase {
         XCTAssertNotNil(eventData[IdentityConstants.EventDataKeys.VISITOR_IDS_LIST] as? [[String: Any]])
         XCTAssertEqual(properties.lastSync?.timeIntervalSince1970, eventData[IdentityConstants.EventDataKeys.VISITOR_IDS_LAST_SYNC] as? TimeInterval)
     }
-    
+
     /// When all properties all nil, the XDM data should have an empty top level identity map
     func testToXDMDataEmpty() {
         // setup
@@ -59,7 +59,7 @@ class IdentityPropertiesTests: XCTestCase {
         // test
         let xdmData = properties.toXDMData()
         let identityMap = xdmData["identityMap"] as? [String: Any]
-        
+
         // verify
         XCTAssertTrue(identityMap?.isEmpty ?? false)
     }
@@ -81,10 +81,10 @@ class IdentityPropertiesTests: XCTestCase {
         let identityMapDict = xdmData["identityMap"] as? [String: Any]
         let identityMapData = try! JSONSerialization.data(withJSONObject: identityMapDict ?? [:], options: [])
         let identityMap = try! JSONDecoder().decode(IdentityMap.self, from: identityMapData)
-        
+
         let ecidItem = identityMap.getItemsFor(namespace: "ECID")?.first
         let customIdItem = identityMap.getItemsFor(namespace: "test-type")?.first
-        
+
         // verify
         XCTAssertEqual(properties.ecid!.ecidString, ecidItem?.id)
         XCTAssertEqual(properties.customerIds?.first?.identifier, customIdItem?.id)
