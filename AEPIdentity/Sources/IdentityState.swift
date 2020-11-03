@@ -232,12 +232,12 @@ class IdentityState {
             identityProperties.pushIdentifier = nil
             pushIdManager.updatePushId(pushId: nil)
             identityProperties.saveToPersistence()
-            createSharedState(identityProperties.toEventData(), nil, event)
+            createSharedState(identityProperties.toEventData(), identityProperties.toXDMData(), event)
         } else if identityProperties.ecid == nil {
             // When changing privacy status from optedout, need to generate a new Experience Cloud ID for the user
             // Sync the new ID with the Identity Service
             if let sharedStateData = syncIdentifiers(event: event) {
-                createSharedState(sharedStateData, nil, event)
+                createSharedState(sharedStateData, identityProperties.toXDMData(), event)
             }
         }
 
@@ -340,7 +340,7 @@ class IdentityState {
             // Still, generate ECID locally if there's none yet.
             identityProperties.ecid = identityProperties.ecid ?? ECID()
             Log.error(label: "\(LOG_TAG):\(#function)", "Identity response returned error: \(error)")
-            createSharedState(identityProperties.toEventData(), nil, event)
+            createSharedState(identityProperties.toEventData(), identityProperties.toXDMData(), event)
             return
         }
 
@@ -351,7 +351,7 @@ class IdentityState {
             identityProperties.locationHint = stringHint
             identityProperties.ttl = identityResponse.ttl ?? IdentityConstants.Default.TTL
             if shouldShareState {
-                createSharedState(identityProperties.toEventData(), nil, event)
+                createSharedState(identityProperties.toEventData(), identityProperties.toXDMData(), event)
             }
         }
     }

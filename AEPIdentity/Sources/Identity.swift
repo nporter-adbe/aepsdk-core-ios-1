@@ -74,7 +74,7 @@ import Foundation
         guard let configSharedState = getSharedState(extensionName: IdentityConstants.SharedStateKeys.CONFIGURATION, event: event)?.value else { return false }
         // attempt to bootup
         if state.bootupIfReady(configSharedState: configSharedState, event: event) {
-            createSharedState(data: state.identityProperties.toEventData(), xdmData: nil, event: nil)
+            createSharedState(data: state.identityProperties.toEventData(), xdmData: state.identityProperties.toXDMData(), event: nil)
         }
 
         return false // cannot handle any events until we have booted
