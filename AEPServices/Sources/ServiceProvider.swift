@@ -12,9 +12,12 @@
 
 import Foundation
 
+@objc(AEPMessagingDelegate)
+public protocol MessagingDelegate {}
+
 public class ServiceProvider {
     public static let shared = ServiceProvider()
-
+    public weak var messagingDelegate: MessagingDelegate?
     // Provide thread safety on the getters and setters
     private let queue = DispatchQueue(label: "ServiceProvider.barrierQueue")
 

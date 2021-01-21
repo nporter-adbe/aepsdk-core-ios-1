@@ -11,10 +11,17 @@
  */
 
 import Foundation
+import AEPServices
 
 /// Implements the `Configuration` public APIs
 @objc
 public extension MobileCore {
+    public static var messagingDelegate: MessagingDelegate? {
+        @available(*, unavailable)
+        get { ServiceProvider.shared.messagingDelegate }
+        set { ServiceProvider.shared.messagingDelegate = newValue }
+    }
+    
     /// Configure the SDK by downloading the remote configuration file hosted on Adobe servers
     /// specified by the given application ID. The configuration file is cached once downloaded
     /// and used in subsequent calls to this API. If the remote file is updated after the first
