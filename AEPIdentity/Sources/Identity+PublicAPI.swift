@@ -77,8 +77,6 @@ import Foundation
                 completion(nil, AEPError.callbackTimeout)
                 return
             }
-
-
             guard let experienceCloudId = responseEvent.data?[IdentityConstants.EventDataKeys.VISITOR_ID_ECID] as? String else {
                 completion(nil, AEPError.unexpected)
                 return
